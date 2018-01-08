@@ -1,0 +1,130 @@
+@import "./section.css";
+:root
+{
+	--primary-color: #ff1744;
+	--bg-color: #f06292; 
+	--hover-color: #16a085;
+	--text-color: black;   
+	--color-main: #4a148c;
+} 
+
+@define-mixin starred color
+{
+	border-style: solid;
+	border-width: 1px;
+	padding-left: 15px;
+	border-radius: 5px;
+	border-color: #bdbdbd;
+	display:flex; 
+}
+ 
+
+/*Media Queries*/ 
+@custom-media --mobile (max-width: 300px);
+@custom-media --tablet (max-width: 650px);
+@custom-media --desktop (max-width: 800px);
+@custom-media --retina (-webkit-min-device-pixel-ratio: 2);
+
+
+.postcss-main
+{
+	background: var(--color-main); 
+	border-radius: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	&__title
+	{
+		color: var(--primary-color);
+		&:hover
+		{
+			filter:blur(1px);
+		}
+		@media (--mobile)
+		{
+			background:color(red alpha(-50%));
+		}
+
+
+	}
+	&__paragraph
+	{
+		color: var(--primary-color);
+	}
+	&__button
+	{
+ 		 border-radius: 5px;
+	}
+}
+.postcss-nav
+{
+
+	&__list{
+		border-radius: 5px;
+		background: var(--bg-color);
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		&__item
+		{
+			display: inline-block;
+		}
+	}
+	a
+	{
+		color: var(--text-color);
+		display:inline-block;
+		padding: 10px 16px;
+		text-decoration: none;
+	}
+}
+.postcss-section--starred
+{
+	@mixin starred var(--bg-color);
+}  
+.postcss-scrollContainer
+{
+	width: 100%;
+	overflow: auto;
+	white-space: nowrap;
+	margin-bottom: 20px;
+	font-size: 0;
+	scroll-snap-points-x: repeat(100%);
+	scroll-snap-type:mandatory;
+	
+		&__itemContainer
+		{
+			border: 1px solid black;
+			border-radius: 12px;
+			width: 98%;
+			padding-left: 5px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			margin: 1%;
+			display: inline-block;
+			line-height: 18px;
+			font-size: 16px;
+			&__content
+			{
+				display:flex;
+				& > img 
+				{
+					width: auto;
+					height: 200px;
+				}
+			}
+		}  
+}
+.postcss-section__paragraph
+{
+	font-size: responsive;
+} 
+.postcss-grid
+{
+	lost-utility: clearfix;
+	&__item
+	{
+	 	lost-column:1/3;
+	}
+}

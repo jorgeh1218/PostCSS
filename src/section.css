@@ -1,0 +1,18 @@
+:root
+{
+	--section-bg-color: #f5f5f5;
+	--section-text-color: black;
+}
+
+.postcss-section
+{
+	p
+	{
+		background: var(--section-bg-color);
+		color: var(--section-text-color);
+	}
+}
+.postcss-section__note
+{
+	font-size: 12px;
+}
